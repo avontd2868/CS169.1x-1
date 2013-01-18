@@ -1,14 +1,35 @@
-class WrongNumberOfPlayersError < StandardError ; end
-class NoSuchStrategyError < StandardError ; end
+require File.dirname(__FILE__) + '/part2'
 
-def rps_result(m1, m2)
-  # YOUR CODE HERE
-end
+#puts rps_game_winner 'a'
+#puts rps_game_winner [ ["Armando", "P"], ["Dave", "S"] ]
 
-def rps_game_winner(game)
-  # YOUR CODE HERE
-end
+tournament =
+[
+  [
+    [ ["Armando", "P"], ["Dave", "S"] ],
+    [ ["Armando0", "P"], ["Dave0", "S"] ],
+    [ ["Richard", "R"],  ["Michael", "P"] ]
+  ],
+  [
+    [ ["Armando1", "P"], ["Dave1", "S"] ]
+  ],
+  [
+    [ ["Armando2", "P"], ["Dave2", "S"] ],
+    [ ["Richard8", "R"],  ["Michael8", "S"] ]
+  ],
+  [
+    [ ["Armando3", "P"], ["Dave3", "S"] ],
+    [ ["Richard11", "R"],  ["Michael11", "S"] ]
+  ]
+]
 
-def rps_tournament_winner(tournament)
-  # YOUR CODE HERE
-end
+tournament1 =
+[
+
+ ["Armando", "R"], ["Dave", "P"]
+
+]
+
+puts rps_tournament_winner tournament
+puts rps_tournament_winner tournament1
+
