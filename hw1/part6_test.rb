@@ -1,19 +1,35 @@
-class Numeric
-  @@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019}
-  def method_missing(method_id)
-    singular_currency = method_id.to_s.gsub( /s$/, '')
-    if @@currencies.has_key?(singular_currency)
-      self * @@currencies[singular_currency]
-    else
-      super
-    end
-  end
+require File.dirname(__FILE__) + '/part6'
+
+#puts 5.dollars
+#puts 5.euros
+
+#puts 5.dollars.in(:euros)
+
+#puts 5.dollars.in(:euros) # => 6.5
+#puts 10.euros.in(:rupees)
+
+puts 2.rupee.in(:dollar) #0.038
+
+puts 1.euro
+puts 50.yen
+puts (1.euro - 50.yen)
+puts (1.euro - 50.yen).in(:dollars)  # => 0.700
+
+
+test_str = "there goes the neighborhood"
+
+if test_str.palindrome?
+  puts test_str + " is a palindrome!"
+else
+  puts test_str + " is NOT a palindrome!"
 end
 
-class String
-  # YOUR CODE HERE
+test_str = "Madam, I'm Adam"
+
+if test_str.palindrome?
+  puts test_str + " is a palindrome!"
+else
+  puts test_str + " is NOT a palindrome!"
 end
 
-module Enumerable
-  # YOUR CODE HERE
-end
+puts [1,2,3,2,1].palindrome?

@@ -3,6 +3,14 @@ class Class
     attr_name = attr_name.to_s   # make sure it's a string
     attr_reader attr_name        # create the attribute's getter
     attr_reader attr_name+"_history" # create bar_history getter
-    class_eval "your code here, use %Q for multiline strings"
+    class_eval <<-EVAL
+      def #{attr_name}=(val)
+        if @#{attr_name+"_history"}.nil?
+          @#{attr_name+"_history"} = [nil]
+        end
+        @#{attr_name} = val
+        @#{attr_name+"_history"} << val
+      end
+    EVAL
   end
 end
